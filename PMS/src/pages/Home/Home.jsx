@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Home.css";
 import Navbar from "../../components/Navbar/Navbar";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -20,15 +21,17 @@ const Home = () => {
     <>
       <Navbar />
       <div className="card-container">
-        {products.map((products) => {
+        {products.map((product) => {
           return (
-            <div key={products.id} className="card">
-              <img src={products.productImage} alt="Product Image" />
-              <h2 className="product-name">{products.productName}</h2>
+            <div key={product.id} className="card">
+              <img src={product.productImage} alt="Product Image" />
+              <h2 className="product-name">{product.productName}</h2>
               <p className="product-description">
-                {products.productDescription}
+                {product.productDescription}
               </p>
-              <p>{products.productMaterial}</p>
+              <p>{product.productMaterial}</p>
+              {/* <a href="/singleProduct">See More</a> */}
+              <Link to={`/singleProduct/${product.id}`}>See More</Link>
             </div>
           );
         })}
