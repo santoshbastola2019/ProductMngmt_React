@@ -47,6 +47,9 @@ const SingleProduct = () => {
         <mark>{product.productMaterial}</mark>
         <br></br>
         <button onClick={deleteProduct}>Delete</button>
+        <button onClick={() => navigate(`/editProduct/${product.id}`)}>
+          Edit
+        </button>
       </div>
     </>
   );
